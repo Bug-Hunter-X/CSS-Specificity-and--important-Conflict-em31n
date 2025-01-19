@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.child:hover {
+  color: green;
+}
+
+.parent .child {
+  color: purple;
+}
+```
+
+In this example, the `.child` element inherits the `color: blue` from its parent. The `!important` declaration on `.child` overrides the inherited color, making the text red. However, the `:hover` pseudo-class has higher specificity than the `!important` rule, causing the text to change to green on hover. Finally, the more specific selector `.parent .child` has even higher specificity than the `!important` rule, causing the text to turn purple. The conflict between `!important` and specificity can lead to unexpected behavior.
