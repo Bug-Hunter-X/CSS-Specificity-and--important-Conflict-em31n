@@ -1,0 +1,17 @@
+The solution avoids using `!important` altogether by restructuring the CSS rules to leverage the natural specificity of CSS selectors.  A more specific selector is created to target the desired styling, thereby eliminating the conflict:
+
+```css
+.parent {
+  color: blue;
+}
+
+.parent .child {
+  color: purple;
+}
+
+.parent .child:hover {
+  color: green;
+}
+```
+
+This revised CSS ensures that the styles are applied predictably based on the hierarchy and specificity of the selectors. This approach promotes clean, maintainable, and understandable CSS.
